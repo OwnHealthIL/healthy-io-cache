@@ -9,8 +9,8 @@ class TestCache(unittest.TestCase):
     def test_get(self, cache_client_mock):
         redis_instance_mock = mock.Mock()
         cache_client_mock.return_value = redis_instance_mock
-        cache = Cache({'host': 'host', 'port': 'port', 'ttl': 'ttl'})
-        cache_client_mock.assert_called_once_with(host='host', port='port')
+        cache = Cache({'host': 'host', 'port': 'port', 'ttl': 'ttl', 'password': 'password'})
+        cache_client_mock.assert_called_once_with(host='host', port='port', password='password')
 
         value = {'value': 'value'}
         redis_instance_mock.get.return_value = json.dumps(value)
@@ -24,8 +24,8 @@ class TestCache(unittest.TestCase):
     def test_put(self, cache_client_mock):
         redis_instance_mock = mock.Mock()
         cache_client_mock.return_value = redis_instance_mock
-        cache = Cache({'host': 'host', 'port': 'port', 'ttl': 'ttl'})
-        cache_client_mock.assert_called_once_with(host='host', port='port')
+        cache = Cache({'host': 'host', 'port': 'port', 'ttl': 'ttl', 'password': 'password'})
+        cache_client_mock.assert_called_once_with(host='host', port='port', password='password')
 
         cache.put('key', {'value': 'value'})
 
@@ -36,8 +36,8 @@ class TestCache(unittest.TestCase):
     def test_delete(self, cache_client_mock):
         redis_instance_mock = mock.Mock()
         cache_client_mock.return_value = redis_instance_mock
-        cache = Cache({'host': 'host', 'port': 'port', 'ttl': 'ttl'})
-        cache_client_mock.assert_called_once_with(host='host', port='port')
+        cache = Cache({'host': 'host', 'port': 'port', 'ttl': 'ttl', 'password': 'password'})
+        cache_client_mock.assert_called_once_with(host='host', port='port', password='password')
 
         cache.put('key', {'value': 'value'})
         cache.delete('key')
