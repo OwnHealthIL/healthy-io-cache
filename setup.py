@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='HealthyIoCache',
     version='0.0.2',
-    packages=['healthyiocache.redis', ],
+    packages=['healthyiocache', 'healthyiocache.redis'],
     long_description='The Backend\'s wrapper for all cache operations',
     url='https://github.com/OwnHealthIL/healthy-io-cache',
     author='Liad',
