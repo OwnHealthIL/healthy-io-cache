@@ -4,7 +4,7 @@ import json
 class Cache:
     def __init__(self, cache_configs):
         self.cache_ttl = cache_configs['ttl']
-        self.cache = Redis(host=cache_configs['host'], port=cache_configs['port'])
+        self.cache = Redis(host=cache_configs['host'], port=cache_configs['port'], password=cache_configs['password'])
 
     def get(self, key):
         value = self.cache.get(key)
